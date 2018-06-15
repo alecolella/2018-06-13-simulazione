@@ -14,7 +14,8 @@ import javafx.scene.control.TextField;
 
 public class FlightDelaysController {
 	
-	Model model;
+	private Model model;
+	
 
     @FXML
     private ResourceBundle resources;
@@ -44,12 +45,25 @@ public class FlightDelaysController {
     			txtResult.setText("Selezionare compagnia aerea!\n");
     			return;
     		}
-    		model.creaGrafo()
+    		model.creaGrafo(a);
+    		txtResult.setText(model.getPeggiori().toString());
     }
 
     @FXML
     void doSimula(ActionEvent event) {
-    		System.out.println("Simula!");
+    	int k;
+    	int v;
+    	try {
+			txtResult.clear();
+					
+			k = Integer.parseInt(numeroPasseggeriTxtInput.getText());
+			v = Integer.parseInt(numeroVoliTxtInput.getText());
+			model.simula(k,v);
+			
+		} catch (NumberFormatException e) {
+			txtResult.setText("Errore di formato");
+			return;
+		}
     }
 
     @FXML

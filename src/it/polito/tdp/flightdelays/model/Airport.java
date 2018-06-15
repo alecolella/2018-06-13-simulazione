@@ -1,5 +1,8 @@
 package it.polito.tdp.flightdelays.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Airport {
 
 	private String id;
@@ -9,6 +12,7 @@ public class Airport {
 	private String country;
 	private double latitude;
 	private double longitude;
+	private List<Flight> voliPartenza;
 	
 	public Airport(String id, String name, String city, String state, String country, double latitude,
 			double longitude) {
@@ -19,6 +23,7 @@ public class Airport {
 		this.country = country;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		voliPartenza = new ArrayList<Flight>();
 	}
 
 	public String getId() {
@@ -75,6 +80,16 @@ public class Airport {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+	
+	
+
+	public List<Flight> getVoliPartenza() {
+		return voliPartenza;
+	}
+
+	public void setVoliPartenza(List<Flight> voliPartenza) {
+		this.voliPartenza = voliPartenza;
 	}
 
 	@Override
