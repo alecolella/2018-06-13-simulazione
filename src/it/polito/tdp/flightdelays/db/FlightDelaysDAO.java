@@ -15,7 +15,7 @@ import it.polito.tdp.flightdelays.model.Flight;
 public class FlightDelaysDAO {
 
 	public List<Airline> loadAllAirlines() {
-		String sql = "SELECT id, airline from airlines";
+		String sql = "SELECT id, airline from airlines order by airline ASC";
 		List<Airline> result = new ArrayList<Airline>();
 
 		try {
